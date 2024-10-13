@@ -37,10 +37,14 @@
             const container = document.getElementById("mainContainer"); 
             const inputs = container.querySelectorAll(".checkbox");
             let allchecked = false;
+            let chances = 1;
             for (let x of inputs) {
                 if (!x.checked) {
-                    allchecked = false;
-                    break;
+                    chances = chances - 1;
+                    if (chances === 0) {
+                        allchecked = false;
+                        break;
+                    }
                 } else {
                     allchecked = true;
                 }
