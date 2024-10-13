@@ -40,10 +40,11 @@
             let chances = 1;
             for (let x of inputs) {
                 if (!x.checked) {
-                    chances = chances - 1;
                     if (chances === 0) {
                         allchecked = false;
                         break;
+                    } else {
+                        chances = chances - 1;
                     }
                 } else {
                     allchecked = true;
