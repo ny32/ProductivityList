@@ -12,69 +12,49 @@
         <h1 class="title">Create a Productivity List!</h1>
         <p class="bio">It's really easy to get disorganized in school so I like to do things help me keep track of my tasks throughout the day.<br>One of my favorite ways to do this is by creating a task list. <em>(You could use this as a planning tool as well)</em><br> <strong>So create a productivity list:</strong></p>
         <ul id="mainContainer">
-            <li style="list-style-type: none;" >
+            <li class="listItem" >
                 <span class="taskContainer" >
                     <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
-                    <input class="textInput" maxlength="20" onclick="CreateNew()" placeholder="Type your first task!"/>
-                    <button class="removeButton" onclick="remove(this)">❌</button>
+                    <input class="textInput" maxlength="20" placeholder="Type your first task!"/>
+                </span>
+            </li>
+            <li class="listItem" >
+                <span class="taskContainer" >
+                    <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
+                    <input class="textInput" maxlength="20" placeholder="Type your first task!"/>
+                </span>
+            </li>
+            <li class="listItem" >
+                <span class="taskContainer" >
+                    <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
+                    <input class="textInput" maxlength="20" placeholder="Type a task!"/>
+                </span>
+            </li>
+            <li class="listItem" >
+                <span class="taskContainer" >
+                    <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
+                    <input class="textInput" maxlength="20" placeholder="Type a task!"/>
+                </span>
+            </li>
+            <li class="listItem" >
+                <span class="taskContainer" >
+                    <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
+                    <input class="textInput" maxlength="20" placeholder="Type a task!"/>
+                </span>
+            </li>
+            <li class="listItem" >
+                <span class="taskContainer" >
+                    <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
+                    <input class="textInput" maxlength="20" placeholder="Type a task!"/>
+                </span>
+            </li>
+            <li class="listItem" >
+                <span class="taskContainer" >
+                    <input style="border-radius: 50%" class="checkbox" type="checkbox"/>
+                    <input class="textInput" maxlength="20" placeholder="Type a task!"/>
                 </span>
             </li>
         </ul>
     </div>
-
-    <script>
-        const html = `
-        <li style="list-style-type: none" >
-            <span class="taskContainer">
-                <input class="checkbox" type="checkbox"/>
-                <input class="textInput" onclick="CreateNew()" placeholder="Create New Task!"/>
-                <button class="removeButton" onclick="remove(this)">❌</button>
-            </span>
-        </li>
-        `;
-        
-        function celebration() {
-            const container = document.getElementById("mainContainer"); 
-            const inputs = container.querySelectorAll(".checkbox");
-            let allchecked = false;
-            let chances = 1;
-            for (let x of inputs) {
-                if (!x.checked) {
-                    if (chances === 0) {
-                        allchecked = false;
-                        break;
-                    } else {
-                        chances = chances - 1;
-                    }
-                } else {
-                    allchecked = true;
-                }
-            }
-            if (allchecked) {
-                document.getElementById("celebration-overlay").classList.add("celebration");
-                setTimeout(function() {document.getElementById("celebration-overlay").classList.remove("celebration") }, 2500)
-            }
-        }
-        document.getElementById("mainContainer").addEventListener("click", celebration);
-        function CreateNew() {
-            const container = document.getElementById("mainContainer"); 
-            const inputs = container.querySelectorAll(".textInput");
-            if(inputs.length === 1) {
-                container.insertAdjacentHTML("beforeend", html);
-            } else {
-                if (inputs[inputs.length - 2].value !== "") {
-                    container.insertAdjacentHTML("beforeend", html);
-                }
-            }
-        }
-        function remove(button) {
-            const container = document.getElementById("mainContainer");
-            const inputs = container.querySelectorAll(".textInput");
-             
-            if(inputs.length !== 1) {
-                button.parentElement.parentElement.remove();
-            }
-        }
-    </script>
 </body>
 </html>
